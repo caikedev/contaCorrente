@@ -1,4 +1,5 @@
 package com.oop.domain;
+
 public class ContaCorrente {
     private int conta, agencia;
     private double saldo;
@@ -20,25 +21,25 @@ public class ContaCorrente {
     
 
     public int sacar(double valor){
-        if(saldo - valor >= 0){
-            saldo -= valor;;
-
-            return 1;
-        } else {return 0;}
+    	if(this.saldo - valor < 0) return 0;
+    	
+    	this.saldo -= valor; 
+    	return 1;
     }
 
     public void depositar(double deposito){
-        saldo += deposito;
+    	if(deposito > 0)
+        this.saldo += deposito;
     }
 
     public void imprimir(){
         System.out.println("+--------------------------------------+");
         System.out.println("|        Dados da Conta                |");
         System.out.println("+--------------------------------------|");
-         System.out.printf(" Cliente: %s\n", nomeCliente);
-         System.out.printf(" AgÃªncia: %d\n", agencia);
-         System.out.printf(" Conta: %d\n", conta);
-         System.out.printf(" Saldo: %.2f\n", saldo);
+         System.out.printf(" Cliente: %s\n", this.nomeCliente);
+         System.out.printf(" Agência: %d\n", this.agencia);
+         System.out.printf(" Conta: %d\n", this.conta);
+         System.out.printf(" Saldo: %.2f\n", this.saldo);
     }
     
 }

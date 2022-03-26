@@ -3,25 +3,25 @@ import java.util.Scanner;
 
 import com.oop.domain.ContaCorrente;
 
-public class Main {
+public class TestaContaCorrente {
     private void showMenu(){
         System.out.println("\n\n");
         System.out.println("+----------------------------------------+");
-        System.out.println("|          Selecione uma OpÃ§Ã£o           |");
+        System.out.println("|          Selecione uma Opção           |");
         System.out.println("+----------------------------------------+");
         System.out.println("|                                        |");
         System.out.println("|   1 - Sacar                            |");
         System.out.println("|   2 - Depositar                        |");
         System.out.println("|   3 - Imprimir dados da Conta          |");
-        System.out.println("|   4 - Exibir opÃ§Ãµes                    |");
+        System.out.println("|   4 - Exibir opções                    |");
         System.out.println("|   0 - Sair                             |");
         System.out.println("|                                        |");
-        System.out.println("| OBS: Os testes sÃ£o realizados com uma  |");
-        System.out.println("|      conta especÃ­fica para testes      |");
+        System.out.println("| OBS: Os testes são realizados com uma  |");
+        System.out.println("|      conta exclusiva para testes       |");
         System.out.println("+----------------------------------------+");
     }
  
-    private void showSacar(ContaCorrente c, Main m, Scanner r){
+    private void showSacar(ContaCorrente c, TestaContaCorrente m, Scanner r){
         System.out.print("Sacar: ");
         double valor = r.nextDouble();
         
@@ -31,9 +31,9 @@ public class Main {
             if (c.sacar(valor) == 1)
                 System.out.println("Saque realizado com sucesso!");
             else
-                System.out.println("O saque nÃ£o foi realizado. Verifique o saldo da conta!");
+                System.out.println("O saque não foi realizado. Verifique o saldo da conta!");
         } else {
-            System.out.println("VocÃª deve informar um valor maior do que 0");
+            System.out.println("Você deve informar um valor maior do que 0");
             m.showSacar(c, m, r);
         }
                 
@@ -53,7 +53,7 @@ public class Main {
     }
     public static void main(String[] args) {
         
-        Main m = new Main();
+        TestaContaCorrente m = new TestaContaCorrente();
         Scanner r = new Scanner(System.in);
         ContaCorrente c = new ContaCorrente();
         short option;
@@ -61,7 +61,7 @@ public class Main {
         do{
             m.showMenu();
 
-            System.out.print("Digite o nÃºmero da opÃ§Ã£o e tecle [Enter]: ");
+            System.out.print("Digite o número da opção e tecle [Enter]: ");
             option = r.nextShort();
 
             switch(option) {
